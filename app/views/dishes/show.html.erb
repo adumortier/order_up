@@ -1,0 +1,8 @@
+<p>Name:  <%= "#{@dish.name}" %> </p>
+<p>Chef: <%= "#{@dish.chef.name}" %> </p>
+
+<% @dish.ingredients.each do |ingredient| %>
+  <div id="ingredient_#{ingredient.id}">
+    <%= "#{ingredient.name}" %>
+  </div>
+<% end %>
