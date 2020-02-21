@@ -11,11 +11,10 @@ RSpec.describe "As a visitor", type: :feature do
       @ingredient2 = Ingredient.create!(name: "fries", calories: 200)
       @dish1.ingredients << @ingredient1
       @dish1.ingredients << @ingredient2
+      visit "/dish/#{@dish1.id}"
     end
 
     it 'displays the dish info' do 
-
-      visit "/dish/#{@dish1.id}"
 
       expect(page).to have_content("Name: #{@dish1.name}")
       expect(page).to have_content("Chef: #{@dish1.chef.name}")
@@ -23,13 +22,18 @@ RSpec.describe "As a visitor", type: :feature do
       expect(page).to have_content(@ingredient2.name)
     end
 
-    it 'test_name_here' do
-
+    it 'displays the total calorie count' do
+      expect(page).to have_content("Total calorie count: #{@ingredient1.calories + @ingredient2.calories}")
     end
 
   end
 
 end
+
+# Story 2 of 3
+# As a visitor
+# When I visit a dish's show page
+# I see the total calorie count for that dish
 
 # Story 1 of 3
 # As a visitor
