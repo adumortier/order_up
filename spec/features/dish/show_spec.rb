@@ -11,7 +11,7 @@ RSpec.describe "As a visitor", type: :feature do
       @ingredient2 = Ingredient.create!(name: "fries", calories: 200)
       @dish1.ingredients << @ingredient1
       @dish1.ingredients << @ingredient2
-      visit "/dish/#{@dish1.id}"
+      visit "/dishes/#{@dish1.id}"
     end
 
     it 'displays the dish info' do 
@@ -29,14 +29,3 @@ RSpec.describe "As a visitor", type: :feature do
   end
 
 end
-
-# Story 2 of 3
-# As a visitor
-# When I visit a dish's show page
-# I see the total calorie count for that dish
-
-# Story 1 of 3
-# As a visitor
-# When I visit a dish's show page
-# I see the name of the chef that made that dish
-# And I see a list of ingredients for that dish
